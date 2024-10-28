@@ -18,7 +18,7 @@ const AchievementSection = () => {
             UpYouth empowers can-do youth to create real impacts, and we also do
             the same.
           </h6>
-          <div className="w-full flex flex-col md:flex-row lg:max-w-7xl md:max-w-md max-w-xs justify-between gap-8 md:gap-0">
+          <div className="w-full flex flex-col lg:flex-row lg:max-w-7xl md:max-w-md max-w-xs justify-between gap-8 lg:gap-0">
             {data.map((item) => (
               <div key={item.label} className="flex-1">
                 <div className="flex flex-col items-center justify-center gap-4">
