@@ -1,7 +1,6 @@
 import Button from "@/components/core/Button";
-import Carousel from "@/components/core/Carousel";
+import ImageCarousel from "@/components/core/ImageCarousel";
 
-import { Row, Col } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 
 const EventSection = () => {
@@ -15,6 +14,36 @@ const EventSection = () => {
         "/assets/images/techyouth/ty2.JPG",
         "/assets/images/techyouth/ty3.JPG",
         "/assets/images/techyouth/ty4.JPG",
+      ],
+    },
+    {
+      title: "Ecosystem community events",
+      description:
+        "Exclusive networking events uniting the startup ecosystem's top minds, with 130+ high-level guests from the US, Singapore, and Vietnam (e.g. Antler, Singapore Global Network, etc.) and 200+ young talents from MBB, Momo, Shopee, etc.",
+      images: [
+        "/assets/images/events/TYSD1.jpg",
+        "/assets/images/events/TYSD2.jpg",
+        "/assets/images/events/TYSD3.jpg",
+        "/assets/images/events/TYSD4.jpg",
+      ],
+    },
+    {
+      title: "Build Street",
+      description:
+        "A community for all builders (scientists, engineers, artists, film makers,...) with weekly 4-hour co-working sessions to bring ideas from 0 to 1 together.",
+      images: [
+        "/assets/images/buildstreet.png",
+      ],
+    },
+    {
+      title: "HackYouth",
+      description:
+        "A 2-day hackathon with HackMIT as a technical advisor, offering a 300-million-VND prize for future entrepreneurs to solve real social challenges by Elsa, Timo, VinaCapital Ventures, and more.",
+      images: [
+        "/assets/images/hackyouth/HY1.jpg",
+        "/assets/images/hackyouth/HY2.jpg",
+        "/assets/images/hackyouth/HY3.jpg",
+        "/assets/images/hackyouth/HY4.jpg",
       ],
     },
   ];
@@ -37,29 +66,31 @@ const EventSection = () => {
           direction, and connections you need.`}
         </h6>
       </div>
-      <div className="flex flex-col lg:max-w-7xl max-w-xl">
+      <div className="flex flex-col w-full md:gap-16">
         {data.map((item, index) => (
-          <Row
+          <div
             key={index}
-            //className="flex flex-col md:flex-row md:gap-4 items-center justify-center max-w-full"
+            className="flex flex-col md:flex-row md:gap-16 items-center justify-center max-w-full gap-8"
           >
-            <Col xs={{ span: 24 }} lg={{ span: 12 }}>
-              <Carousel images={item?.images} />
-            </Col>
-            <Col xs={{ span: 24 }} lg={{ span: 12 }}>
-              <div className="flex flex-col gap-4">
-                <h3 className="text-3xl font-bold text-primary-blue">
+            <div className={`flex-1 w-full h-full overflow-hidden ${index % 2 === 0 ? "order-2" : ""}`}>
+              <div className="max-w-[500px] m-auto rounded-3xl ">
+              <ImageCarousel data={item?.images} />
+              </div>
+            </div>
+            <div className="flex-1">
+              <div className="flex flex-col gap-4 items-center">
+                <h3 className="font-bold text-primary-blue text-lg leading-8 md:text-3xl">
                   {item.title}
                 </h3>
-                <p className="text-base">{item.description}</p>
+                <p className="text-xs leading-6 md:text-base">{item.description}</p>
                 <div className="inline">
                   <Button>
                     Visit {item.title} <ArrowRightOutlined />
                   </Button>
                 </div>
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         ))}
       </div>
     </section>
