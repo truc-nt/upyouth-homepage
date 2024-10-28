@@ -1,7 +1,6 @@
 import Button from "@/components/core/Button";
 import ImageCarousel from "@/components/core/ImageCarousel";
 
-import { Row, Col } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 
 const EventSection = () => {
